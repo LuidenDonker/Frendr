@@ -1,1 +1,5 @@
 hallo allemaal
+<<<<<<< HEAD
+=======
+Hallo werkt het zo?
+>>>>>>> origin/master
