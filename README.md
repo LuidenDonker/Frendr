@@ -1,3 +1,2 @@
 # Frendr
 Hallo!
-Hoi!
