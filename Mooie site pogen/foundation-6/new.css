@@ -69,3 +69,17 @@ margin-left: auto;
     background: linear-gradient(45deg,  #cccccc,#cccccc); 
 	border-radius: 25px;}
 
+@media (max-width: 768px) { 
+    .service {
+    width: 200%;
+    margin-left: -50%;
+    margin-top: 20%;
+
+      }
+
+    .button {
+      font-size: .7rem;
+
+
+}
+

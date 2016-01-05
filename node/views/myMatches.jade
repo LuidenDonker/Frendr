@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+  head
+    title  Find Friends 
+    meta(charset='utf-8')
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/FindStyles.css', rel='stylesheet')
+  body
+    nav.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href='index.html') Friends Finder
+        div
+          ul.nav.navbar-nav
+            // Link to pages here!
+            li.active
+              a(href='index.html') Home
+            li
+              a(href='findFriends.html') Find Friends
+            li
+              a(href='MyMatches.html') My Matches
+            li
+              a(href='login.html') Log In
+    .col.md-12.jumbotron
