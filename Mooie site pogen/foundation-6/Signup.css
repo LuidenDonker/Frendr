@@ -8,13 +8,14 @@
   margin-top:10%;
   margin-bottom: auto;
   text-align: center;
-  border: 1px solid #ddd;
+  border: ;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;  }
   .service .service-icon-box {
     position: relative;
     display: inline-block;
-    margin-bottom: 40px;
+	margin-top:10%;
+    margin-bottom: 10%;
     padding: 10px;
     background: transparent;
     -webkit-transition: all 0.3s ease;
