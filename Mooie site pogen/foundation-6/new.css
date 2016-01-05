@@ -69,6 +69,11 @@ margin-left: auto;
     background: linear-gradient(45deg,  #cccccc,#cccccc); 
 	border-radius: 25px;}
 
+  #input {
+    width: 90%;
+    margin: auto;
+  }
+
 @media (max-width: 768px) { 
     .service {
     width: 200%;
