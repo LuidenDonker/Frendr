@@ -1,22 +1,93 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+<title>Create Account</title>
+  <?php
 
+  //zet dit boven aan in de header
+  $servername = "localhost";
+  $username = "jelletd163_user";
+  $password = "jellek95";
+  $dbname = "jelletd163_db";
+
+  // Create connection
+  $conn = mysql_connect($servername, $username, $password) or die("Unable to connect to MySQL");
+
+  $selected = mysql_select_db($dbname,$conn) or die("Could not select examples");
+
+  $sql = "SELECT * FROM GuestBook ORDER BY id DESC";
+  $result = mysql_query($sql, $conn);
+  if(!$result) {
+      die("Database query failed: " . mysql_error());
+  }
+  //$query_select = "SELECT id FROM GuestBOOK WHERE naam=Jesse";
+  //$query = "INSERT INTO GuestBook (name, message) VALUES ( ".$naam." , ".$bericht." )";
+  //$send = mysql_query($query_select, $conn) or die("niet gelukt");
+
+  mysql_close($conn);
+
+  ?>
+
+</head>
+<body>
+  <?PHP
+
+    if(isset($_POST["submit"])){
+
+        $naam = $_POST['fname'];
+        $achternaam = $_POST['lname'];
+        $mail = $_POST['email'];
+        $loc = $_POST['loc'];
+
+        if($naam != "" AND $bericht != ""){
+
+            $servername = "localhost";
+            $username = "jelledr164_user";
+            $password = "jellek95";
+            $dbname = "jelledr164_frendr";
+
+            // Create connection
+            $conn = mysql_connect($servername, $username, $password) or die("Unable to connect to MySQL");
+
+            $selected = mysql_select_db($dbname,$conn) or die("Could not select examples");
+
+            $sql = "INSERT INTO accounts (fname, lname, email, loc) VALUES ( '".$naam."' , '".$achternaam."' , '" .$mail "' , '" .$loc"' )";
+            $result = mysql_query($sql, $conn);
+            if(!$result) {
+                die("Database query failed: " . mysql_error());
+            }
+            //$query_select = "SELECT id FROM GuestBOOK WHERE naam=Jesse";
+            //$query = "INSERT INTO GuestBook (name, message) VALUES ( ".$naam." , ".$bericht." )";
+            //$send = mysql_query($query_select, $conn) or die("niet gelukt");
+
+            mysql_close($conn);
+
+
+
+        }else{
+
+          echo "no succes";
+        }
+
+
+    }
+
+    ?>
 <form id="frm1" action="form_action.asp">
   First name: <input type="text" name="fname"><br>
   Last name: <input type="text" name="lname"><br>
-  E-Mail: <input type="text" name="fname"><br>
-  Location: <input type="text" name="fname"><br>
+  E-Mail: <input type="text" name="email"><br>
+  Location: <input type="text" name="loc"><br>
 <input type="checkbox" id="messageCheckbox" name="fname" value="Sports">Sports
 <input type="checkbox" id="messageCheckbox2" name="fname" value="Music">Music
 
 </form>
- 
+
 
 <p>Click "Try it" to display the value of each element in the form.</p>
 
 <button onclick="myFunction()">Try it</button>
-
+<!--
 <p id="demo"></p>
 <p id = "demo2"></p>
 <p id = "demo3"></p>
@@ -35,37 +106,15 @@ function myFunction() {
     }
     document.getElementById("demo").innerHTML = text;
     if(y == true){
-    document.getElementById("demo2").innerHTML = y; 
-         
+    document.getElementById("demo2").innerHTML = y;
+
     };
   if(z == true){
-    document.getElementById("demo3").innerHTML = z;      
+    document.getElementById("demo3").innerHTML = z;
     };
 
 }
 </script>
-
+-->
 </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html>
-<body>
-
-Checkbox: <input type="checkbox" id="myCheck">
-
-<p>Click the "Try it" button to find out whether the checkbox is checked, or not.</p>
-
-<button onclick="myFunction()">Try it</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("myCheck").checked;
-    document.getElementById("demo").innerHTML = x;
-}
-</script>
-
-</body>
-</html> -->

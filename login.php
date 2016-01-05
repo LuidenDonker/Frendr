@@ -25,8 +25,8 @@
       <ul class="nav navbar-nav">
 	  <!--Link to pages here!-->
         <li class="active"><a href="index.php">Home</a></li>
-        <li><a href="findFriends.html">Find Friends</a></li> 
-        <li><a href="MyMatches.html">My Matches</a></li> 
+        <li><a href="findFriends.php">Find Friends</a></li> 
+        <li><a href="MyMatches.php">My Matches</a></li> 
         <li><a href="login.php">Log In</a></li> 
       </ul>
     </div>
@@ -41,14 +41,13 @@ $pass = $_POST['password'];
 $servername = "localhost";
 $username = "jelletd163_user";
 $password = "jellek95";
-$dbname = "jelledr164_frendr";
+$dbname = "jelletd163_frendr";
 
 // Create connection
 $conn = mysql_connect($servername, $username, $password) or die("Unable to connect to MySQL");
 
 $selected = mysql_select_db($dbname,$conn) or die("Could not select examples");
-
-$sql = "SELECT * FROM accounts WHERE 'LoginName'= '".$log."'";
+$sql = "SELECT * FROM accounts WHERE LoginName = '$log' LIMIT 1";
 $result = mysql_query($sql, $conn);
 if(!$result) {
     die("Database query failed: " . mysql_error());
@@ -66,8 +65,18 @@ mysql_close($conn);
     Your password:     <input type="text" name="password"><br>
     <input type="submit" name="submit" class="btn btn-xl" value="Stuur!"/><br?
     </form><br><br><br>
-               
+                 
             </div>
+                <div style = "position: absolute;right:100px; top:200px; height:500px; width:500px;"><?php
+                      //zet dit waar je de items wilt hebben
+                      while($row = mysql_fetch_array($result)) { //opmaak items
+                          if (strcmp($pass, $row['password']) == 0) {
+                            echo " <h4>" . $row['fname']. "</h4><br>";
+                          }                          
+                           }
+                             
+                    ?>
+                </div>
 </body>
 
 	
