@@ -34,8 +34,11 @@ if(isset($_POST['submitted']))
         <img src="http://www.clipartsheep.com/images/447/lock-clip-art-free-vector-download-graphicsmaterialepsai-clipart.jpeg" alt="" class="service-icon">
       </div>
       <h4 class="service-heading">Frendr</h4>
+	  <br>
 	  <p class ="service-description">No Account?</p>
 	  <a class ="service-description" href="register.php">Signup here</a>
+	  <br>
+	   <br>
     <fieldset >
 <input type='hidden' name='submitted' id='submitted' value='1'/>
 
