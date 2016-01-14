@@ -1,71 +1,37 @@
-<!DOCTYPE html>
-<html>
-<body>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frendr | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/app.css" />
+	<link rel="stylesheet" href="new.css" />
+  </head>
+  
+  <body>
+	
+  <div class="row">
+  <div class="small-6 small-centered columns">
+    
+    <div class="service">
+      <div class="service-icon-box">
+        <img src="https://s-media-cache-ak0.pinimg.com/236x/b1/a4/84/b1a484fefe9002045a6b8387934611ac.jpg" alt="" class="service-icon">
+      </div>
+      <h4 class="service-heading">Frendr</h4>
+      <p class="service-description">Frendr is the Dating App for Platonic Love. </p>
+	  <p class="service-description">Click Below to Find New Friends </p>
+	<br><br>
+	  <a class="button" href="/Frendr/register.php">SIGN UP</a>
+<br>
+        <a class="button" href="/Frendr/login.php">LOG IN</a>
+    </div>
+    
+  </div>
+</div>
 
-<form id="frm1" action="form_action.asp">
-  First name: <input type="text" name="fname"><br>
-  Last name: <input type="text" name="lname"><br>
-  E-Mail: <input type="text" name="fname"><br>
-  Location: <input type="text" name="fname"><br>
-<input type="checkbox" id="messageCheckbox" name="fname" value="Sports">Sports
-<input type="checkbox" id="messageCheckbox2" name="fname" value="Music">Music
-
-</form>
- 
-
-<p>Click "Try it" to display the value of each element in the form.</p>
-
-<button onclick="myFunction()">Try it</button>
-
-<p id="demo"></p>
-<p id = "demo2"></p>
-<p id = "demo3"></p>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("frm1");
-    var y = document.getElementById("messageCheckbox").checked;
-    var z = document.getElementById("messageCheckbox2").checked;
-
-    var text = "";
-
-    var i;
-    for (i = 0; i < x.length ;i++) {
-        text += x.elements[i].value + "<br>";
-    }
-    document.getElementById("demo").innerHTML = text;
-    if(y == true){
-    document.getElementById("demo2").innerHTML = y; 
-         
-    };
-  if(z == true){
-    document.getElementById("demo3").innerHTML = z;      
-    };
-
-}
-</script>
-
-</body>
-</html>
-
-<!-- <!DOCTYPE html>
-<html>
-<body>
-
-Checkbox: <input type="checkbox" id="myCheck">
-
-<p>Click the "Try it" button to find out whether the checkbox is checked, or not.</p>
-
-<button onclick="myFunction()">Try it</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("myCheck").checked;
-    document.getElementById("demo").innerHTML = x;
-}
-</script>
-
-</body>
-</html> -->
+  
+  
+  
+  </body>
