@@ -8,15 +8,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 
   <script src="json.js"></script>
+  <link rel="stylesheet" type="text/css" href="json.css">
 </head>
 
   <body>
 
-      <h3 id="header1">Best Match: <var id="bestmatch1">.....</var> (<var id="bestcounter1">.....</var>)</h3>
-      <h3 id="header2">2nd Best Match: <var id="bestmatch2">.....</var> (<var id="bestcounter2">.....</var>)</h3>
-      <h3 id="header3">3rd Best Match: <var id="bestmatch3">.....</var> (<var id="bestcounter3">.....</var>)</h3>
+    <div id="matchesdiv">
+      <h3 class="headers" id="header1">1st Best Match: 
+      <var class="matches" id="bestmatch1">.....</var> <var class="items" id="array1">.....</var>
+      <var class="percentages" id="bestcounter1">..</var></h3>
 
+      <h3 class="headers" id="header2">2nd Best Match: 
+      <var class="matches" id="bestmatch2">.....</var> <var class="items" id="array2">.....</var>
+      <var class="percentages" id="bestcounter2">..</var></h3>
 
+      <h3 class="headers" id="header3">3rd Best Match: 
+      <var class="matches" id="bestmatch3">.....</var> <var class="items" id="array3">.....</var>
+      <var class="percentages" id="bestcounter3">..</var></h3>
+    </div>
   </body>
 </html>
 

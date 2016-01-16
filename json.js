@@ -7,9 +7,9 @@ $(document).ready(function(){
   
 
   var data = [
-      {"name":"Dummy1","cooking":"1","sports":"1","walking":"0","culture":"1","movies":"0"},
-      {"name":"Dummy2","cooking":"1","sports":"0","walking":"0","culture":"1","movies":"0"},
-      {"name":"Dummy3","cooking":"1","sports":"0","walking":"1","culture":"1","movies":"0"},
+      {"name":"Dummy1","cooking":"1","sports":"1","walking":"1","culture":"1","movies":"0"},
+      {"name":"Dummy2","cooking":"1","sports":"1","walking":"1","culture":"1","movies":"1"},
+      {"name":"Dummy3","cooking":"1","sports":"1","walking":"1","culture":"1","movies":"1"},
       {"name":"Dummy4","cooking":"0","sports":"1","walking":"1","culture":"0","movies":"0"},
       {"name":"Dummy5","cooking":"0","sports":"1","walking":"1","culture":"0","movies":"1"},
       {"name":"Dummy6","cooking":"1","sports":"0","walking":"1","culture":"1","movies":"1"},
@@ -21,7 +21,15 @@ $(document).ready(function(){
   ];
 
 //Information about the person that makes the request
-    var matchRequest = 2;
+    var matchRequest = 0;
+
+    for (var i = 0; i <= data.length - 1; i++) {
+      if (data[i].name == "Dummy1"){
+        matchRequest = i;
+      }
+      
+    };
+
     var counter = 0
 
     if (data[matchRequest].cooking==1){
@@ -43,8 +51,8 @@ $(document).ready(function(){
 //Matching the person that made the request with at most three others
 
     var bestmatch1 = "";
-    var bestmatch2="";
-    var bestmatch3="";
+    var bestmatch2 = "";
+    var bestmatch3 = "";
 
     var bestcounter1 = 0;
     var bestcounter2= 0;
@@ -81,12 +89,21 @@ $(document).ready(function(){
           }
 
           if (bestcounter1 < match) {
+            bestcounter3 = bestcounter2;
+            bestcounter2 = bestcounter1;
             bestcounter1 = match;
+            bestmatch3 = bestmatch2;
+            bestmatch2 = bestmatch1;
             bestmatch1 = data[i].name;
+            array3 = array2;
+            array2 = array1;
             array1 = array;
           } else if (bestcounter1 >= match && bestcounter2 < match){
+            bestcounter3 = bestcounter2;
             bestcounter2 = match;
+            bestmatch3 = bestmatch2;
             bestmatch2 = data[i].name;  
+            array3 = array2;
             array2 = array;
           } else if (bestcounter2 >= match && bestcounter3 < match){
             bestcounter3 = match;
@@ -101,11 +118,17 @@ $(document).ready(function(){
   if(counter !=0){
 
     $('#bestmatch1').html(bestmatch1);
-    $('#bestcounter1').html((Math.round((bestcounter1/counter)*1000)/1000)*100+"%"+" "+array1);
+    $('#array1').html(""+array1);
+    $('#bestcounter1').html((Math.round((bestcounter1/counter)*1000)/10)+"%");
+
     $('#bestmatch2').html(bestmatch2);
-    $('#bestcounter2').html((Math.round((bestcounter2/counter)*1000)/1000)*100+"%"+" "+array2);
+    $('#array2').html(""+array2);
+    $('#bestcounter2').html((Math.round((bestcounter2/counter)*1000)/10)+"%");
+    
     $('#bestmatch3').html(bestmatch3);
-    $('#bestcounter3').html((Math.round((bestcounter3/counter)*1000)/1000)*100+"%"+" "+array3);
+    $('#array3').html(""+array3);
+    $('#bestcounter3').html((Math.round((bestcounter3/counter)*1000)/10)+"%");
+  
   } else {
     $('#header1').html("No Matches Found"); 
     $('#header2').html("");  
@@ -113,4 +136,3 @@ $(document).ready(function(){
   }
 //  });
 });
-
