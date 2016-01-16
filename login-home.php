@@ -6,11 +6,65 @@
     <link href="/Frendr/assets/css/bootstrap2.css" rel="stylesheet" />
     <!-- FONT AWESOME  CSS -->
     <link href="/Frendr/assets/css/font-awesome2.css" rel="stylesheet" />
+
     <!-- CUSTOM STYLE CSS -->
+    <style>#matchesdiv {
+	width: 80%;
+	margin: auto;
+}
+
+var{
+	font-style: normal;
+}
+
+.headers {
+	font-family: Verdana;
+	color: #505050;
+	margin-bottom: 1.5em;
+}
+
+.headers *{
+	color: black;
+}
+
+.matches {
+	padding-right: 1em;
+}
+
+.percentages{
+	float: right;
+	padding: .2em;
+	border: 1px solid black;
+	border-radius: .5em;
+}
+
+.items {
+	font-size: .9em;
+}
+
+
+@media (max-width: 800px) {     
+
+#matchesdiv {
+	width: 90%;
+}
+
+
+.headers *{
+		display: block;
+		padding: .3em;
+}
+
+.percentages{
+	float: none;
+	width: 3.3em;
+    text-align: center;
+}
+
+}</style>
     <link href="/Frendr/assets/css/style2.css" rel="stylesheet" />
   <?php
     $usname = $_POST['username'];
-    $passw = $_POST['password'];
   //zet dit boven aan in de header
   $servername = "localhost";
   $username = "jelletd163_user";
@@ -35,6 +89,79 @@ $result2 = mysql_query($sql2, $conn);
 
   mysql_close($conn);
 
+
+  if (isset($_POST['submit'])) {
+      $userrname = $_POST['username'];
+            $cooking = isset($_POST['Cooking']);
+      $sports = isset($_POST['Sports']);
+      $walking = isset($_POST['Walking']);
+      $culture = isset($_POST['Culture']);
+      $movies = isset($_POST['Movies']);
+      $music = isset($_POST['Music']);
+      $theatre = isset($_POST['Theatre']);
+      $dance = isset($_POST['Dance']);
+      $books = isset($_POST['Books']);
+      $parties = isset($_POST['Parties']);
+      $shopping = isset($_POST['Shopping']);
+      $fashion = isset($_POST['Fashion']);
+      $handicrafts = isset($_POST['Handicrafts']);
+      $drugs = isset($_POST['Drugs']);
+      
+          $servername = "localhost";
+          $username = "jelletd163_user";
+          $password = "jellek95";
+          $dbname = "jelletd163_frendr";
+
+          
+          // Create connection
+          $conn = mysql_connect($servername, $username, $password) or die("Unable to connect to MySQL");
+          $selected = mysql_select_db($dbname,$conn) or die("Could not select examples");
+        $deletion = "DELETE FROM interesses WHERE name='".$userrname."';";
+          $deleter = mysql_query($deletion, $conn);
+      $sql = "INSERT INTO interesses (name, cooking, sports, walking, culture, movies, music, theatre, dance, books, parties, shopping, fashion, handicrafts, drugs) VALUES ( '".$userrname."' , '".$cooking."', '".$sports."', '".$walking."', '".$culture."', '".$movies."' , '".$music."' , '".$theatre."' , '".$dance."', '".$books."', '".$parties."', '".$shopping."', '".$fashion."', '".$handicrafts."', '".$drugs."');";
+      //}
+          $result = mysql_query($sql, $conn);
+          if(!$result) {
+              die("Database query failed: " . mysql_error());
+          }
+          //$query_select = "SELECT id FROM GuestBOOK WHERE naam=Jesse";
+          //$query = "INSERT INTO GuestBook (name, message) VALUES ( ".$naam." , ".$bericht." )";
+          //$send = mysql_query($query_select, $conn) or die("niet gelukt");
+
+          mysql_close($conn);
+
+// Create connection
+  $conn = mysql_connect($servername, $username, $password) or die("Unable to connect to MySQL");
+
+  $selected = mysql_select_db($dbname,$conn) or die("Could not select examples");
+
+  $sql4 = "SELECT * FROM accounts WHERE LoginName ='".$userrname."'";
+  $result3 = mysql_query($sql4, $conn);
+  if(!$result3) {
+  die("Database query failed: " . mysql_error());
+  }
+  //$query_select = "SELECT id FROM GuestBOOK WHERE naam=Jesse";
+  //$query = "INSERT INTO GuestBook (name, message) VALUES ( ".$naam." , ".$bericht." )";
+  //$send = mysql_query($query_select, $conn) or die("niet gelukt");
+
+  mysql_close($conn);
+// Create connection
+  $conn = mysql_connect($servername, $username, $password) or die("Unable to connect to MySQL");
+
+  $selected = mysql_select_db($dbname,$conn) or die("Could not select examples");
+
+  $sql5 = "SELECT * FROM interesses WHERE name ='".$userrname."'";
+  $result5 = mysql_query($sql5, $conn);
+  if(!$result5) {
+  die("Database query failed: " . mysql_error());
+  }
+  //$query_select = "SELECT id FROM GuestBOOK WHERE naam=Jesse";
+  //$query = "INSERT INTO GuestBook (name, message) VALUES ( ".$naam." , ".$bericht." )";
+  //$send = mysql_query($query_select, $conn) or die("niet gelukt");
+
+
+
+  }
   ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,51 +188,9 @@ $result2 = mysql_query($sql2, $conn);
 
 
 <body>
+    <a href ="logout.php" style="position:fixed; right:30px; top:10px; width:4.6em; height: 2.2em; border: 1px solid black; text-align: center; padding: 4px; text-decoration: none; color: black; border-radius: 5px">Log Out</a>
     <?php
-  if (isset($_POST['submit'])) {
-      $cooking = isset($_POST['Cooking']);
-      $sports = isset($_POST['Sports']);
-      $walking = isset($_POST['Walking']);
-      $culture = isset($_POST['Culture']);
-      $movies = isset($_POST['Movies']);
-      $music = isset($_POST['Music']);
-      $theatre = isset($_POST['Theatre']);
-      $dance = isset($_POST['Dance']);
-      $books = isset($_POST['Books']);
-      $parties = isset($_POST['Parties']);
-      $shopping = isset($_POST['Shopping']);
-      $fashion = isset($_POST['Fashion']);
-      $handicrafts = isset($_POST['Handicrafts']);
-      $drugs = isset($_POST['Drugs']);
-      
-          $servername = "localhost";
-          $username = "jelletd163_user";
-          $password = "jellek95";
-          $dbname = "jelletd163_frendr";
 
-          
-          // Create connection
-          $conn = mysql_connect($servername, $username, $password) or die("Unable to connect to MySQL");
-
-          $selected = mysql_select_db($dbname,$conn) or die("Could not select examples");
-
-          $sql = "INSERT INTO interesses (name, cooking, sports, walking, culture, movies, music, theatre, dance, books, parties, shopping, fashion, handicrafts, drugs) VALUES ( '".$usname."' , '".$cooking."', '".$sports."', '".$walking."', '".$culture."', '".$movies."' , '".$music."' , '".$theatre."' , '".$dance."', '".$books."', '".$parties."', '".$shopping."', '".$fashion."', '".$handicrafts."', '".$drugs."')";
-          $result = mysql_query($sql, $conn);
-          if(!$result) {
-              die("Database query failed: " . mysql_error());
-          }
-          //$query_select = "SELECT id FROM GuestBOOK WHERE naam=Jesse";
-          //$query = "INSERT INTO GuestBook (name, message) VALUES ( ".$naam." , ".$bericht." )";
-          //$send = mysql_query($query_select, $conn) or die("niet gelukt");
-
-          mysql_close($conn);
-
-
-
-     
-
-
-  }
 ?>
     <div id="wrapper">
 <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><img style="width:20px; height:20px;" src="http://activeshowcase.s3.amazonaws.com/activelab/files/538c8604b16a8.jpg"></img></a>
@@ -125,16 +210,31 @@ while($row = mysql_fetch_array($result)){
                     echo"</h1>";
 					echo"<br>";
               echo"<p class=\"profile\">Name:";   
-                   $nam = $row['fname'];
                             echo "".$row["fname"]."";
     echo " </p>"; 
     echo "<p class=\"profile\"> Email: "; 
-    echo "".$row['email']."";
+    echo "".$row["email"]."";
     echo"</p>";
     echo "<p class=\"profile\"> Area: ";   
                     echo "".$row["Location"]."";
     echo "</p>";
-                    }
+}
+while($row3 = mysql_fetch_array($result3)){
+    echo "<h1 class= \"profileHeader\">";
+                        echo"My Profile";
+                    echo"</h1>";
+					echo"<br>";
+              echo"<p class=\"profile\">Name:";   
+                            echo "".$row3["fname"]."";
+    echo " </p>"; 
+    echo "<p class=\"profile\"> Email: "; 
+    echo "".$row3["email"]."";
+    echo"</p>";
+    echo "<p class=\"profile\"> Area: ";   
+                    echo "".$row3["Location"]."";
+    echo "</p>";
+    
+}
                   ?>
                    
               <input id="ariaid" class="navbar-collapsed collapse"type="text" style="background-color:black;" name="location">
@@ -144,11 +244,64 @@ while($row = mysql_fetch_array($result)){
                         My Interests
                     </h1>
 						 <br>
+                <?php 
+                while($row5 = mysql_fetch_array($result5)){
+                    echo"<div style=\"color:white;\">";
+                if( $row5['cooking']){
+                    echo "Cooking<br>";
+                }
+                 if( $row5['sports']){
+                    echo "Sports<br>";
+                }
+                    if( $row5['walking']){
+                    echo "Walking<br>";
+                }
+                    if( $row5['culture']){
+                    echo "Culture<br>";
+                }
+                    if( $row5['movies']){
+                    echo "Movies<br>";
+                }
+                    if( $row5['music']){
+                    echo "Music<br>";
+                }
+                    if( $row5['theatre']){
+                    echo "Theatre<br>";
+                }
+                    if( $row5['dance']){
+                    echo "Dance<br>";
+                }
+                    if( $row5['books']){
+                    echo "Books<br>";
+                }
+                    if( $row5['parties']){
+                    echo "Parties<br>";
+                }
+                    if( $row5['shopping']){
+                    echo "Shopping<br>";
+                }
+                    if( $row5['fashion']){
+                    echo "Fashion<br>";
+                }
+                    if( $row5['handicrafts']){
+                    echo "Handicrafts<br>";
+                }
+                    if( $row5['drugs']){
+                    echo "Drugs<br>";
+                }
+                    echo "</div>";
+                }
+
+                ?>
                 
-                
-                
-				<form class="checkInterest" method="POST"action="/Frendr/login-home.php">
-<input type="checkbox" name="Cooking" value="Cooking">Cooking	<br>
+                  <p class="profile" style="float: right;">Edit:
+                <button type="button" data-toggle='collapse' data-target='#nameid' style="background-color: black; border:none black"><i class="glyphicon glyphicon-pencil" ></i></button>
+              </p>
+
+
+				<form class="navbar-collapsed collapse" id="nameid" method="POST"action="/Frendr/login-home.php" style="color:white;">
+<input type = "textbox" name ="username" style="display:none;"value = "<?php echo $usname;?>" >  <br>
+    <input type="checkbox" name="Cooking" value="Cooking">Cooking	<br>
 <input type="checkbox" name="Sports" value="Sports">Sports	<br>
 <input type="checkbox" name="Walking" value="Walking">Walking	<br>
 <input type="checkbox" name="Culture" value="Culture">Culture	<br>
@@ -162,6 +315,7 @@ while($row = mysql_fetch_array($result)){
 <input type="checkbox" name="Fashion" value="Fashion">Fashion	<br>
 <input type="checkbox" name="Handicrafts" value="Handicrafts">Handicrafts	<br>
 <input type="checkbox" name="Drugs" value="Drugs">Drugs <br>
+                    
 <input type="submit" name="submit" value="Update" style = "color:black;"/>
 </form>
             </ul>
@@ -174,9 +328,21 @@ while($row = mysql_fetch_array($result)){
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="headProf">My Matches</h1>
-    <h3 id="header1">Best Match: <var id="bestmatch1">.....</var> (<var id="bestcounter1">.....</var>)</h3>
-<h3 id="header2">2nd Best Match: <var id="bestmatch2">.....</var> (<var id="bestcounter2">.....</var>)</h3>
-<h3 id="header3">3rd Best Match: <var id="bestmatch3">.....</var> (<var id="bestcounter3">.....</var>)</h3>
+    
+    <div id="matchesdiv">
+      <h3 class="headers" id="header1">1st Best Match: 
+      <var class="matches" id="bestmatch1">.....</var> <var class="items" id="array1">.....</var>
+      <var class="percentages" id="bestcounter1">..</var></h3>
+
+      <h3 class="headers" id="header2">2nd Best Match: 
+      <var class="matches" id="bestmatch2">.....</var> <var class="items" id="array2">.....</var>
+      <var class="percentages" id="bestcounter2">..</var></h3>
+
+      <h3 class="headers" id="header3">3rd Best Match: 
+      <var class="matches" id="bestmatch3">.....</var> <var class="items" id="array3">.....</var>
+      <var class="percentages" id="bestcounter3">..</var></h3>
+    </div>
+
 </div>
 <script>
                     $(document).ready(function(){
@@ -343,12 +509,19 @@ while($row = mysql_fetch_array($result)){
 
   if(counter !=0){
 
+
     $('#bestmatch1').html(bestmatch1);
-    $('#bestcounter1').html((Math.round((bestcounter1/counter)*1000)/10)+"%"+" "+array1);
+    $('#array1').html(""+array1);
+    $('#bestcounter1').html((Math.round((bestcounter1/counter)*100)/1)+"%");
+
     $('#bestmatch2').html(bestmatch2);
-    $('#bestcounter2').html((Math.round((bestcounter2/counter)*1000)/10)+"%"+" "+array2);
+    $('#array2').html(""+array2);
+    $('#bestcounter2').html((Math.round((bestcounter2/counter)*100)/1)+"%");
+    
     $('#bestmatch3').html(bestmatch3);
-    $('#bestcounter3').html((Math.round((bestcounter3/counter)*1000)/10)+"%"+" "+array3);
+    $('#array3').html(""+array3);
+    $('#bestcounter3').html((Math.round((bestcounter3/counter)*100)/1)+"%");
+  
   } else {
     $('#header1').html("No Matches Found"); 
     $('#header2').html("");  
