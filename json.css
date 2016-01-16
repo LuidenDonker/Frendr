@@ -10,6 +10,7 @@ var{
 .headers {
 	font-family: Verdana;
 	color: #505050;
+	margin-bottom: 2.5em;
 }
 
 .headers *{
@@ -29,4 +30,26 @@ var{
 
 .items {
 	font-size: .9em;
+}
+
+
+@media (max-width: 800px) {     
+
+#matchesdiv {
+	width: 90%;
+}
+
+.headers{
+	margin-bottom: 3em;
+}
+.headers *{
+		display: block;
+		padding: .3em;
+}
+
+.percentages{
+	float: none;
+	width: 3.2em;
+}
+
 }

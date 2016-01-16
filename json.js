@@ -24,7 +24,7 @@ $(document).ready(function(){
     var matchRequest = 0;
 
     for (var i = 0; i <= data.length - 1; i++) {
-      if (data[i].name == "Dummy1"){
+      if (data[i].name == "Dummy5"){
         matchRequest = i;
       }
       
@@ -119,15 +119,15 @@ $(document).ready(function(){
 
     $('#bestmatch1').html(bestmatch1);
     $('#array1').html(""+array1);
-    $('#bestcounter1').html((Math.round((bestcounter1/counter)*1000)/10)+"%");
+    $('#bestcounter1').html((Math.round((bestcounter1/counter)*100)/1)+"%");
 
     $('#bestmatch2').html(bestmatch2);
     $('#array2').html(""+array2);
-    $('#bestcounter2').html((Math.round((bestcounter2/counter)*1000)/10)+"%");
+    $('#bestcounter2').html((Math.round((bestcounter2/counter)*100)/1)+"%");
     
     $('#bestmatch3').html(bestmatch3);
     $('#array3').html(""+array3);
-    $('#bestcounter3').html((Math.round((bestcounter3/counter)*1000)/10)+"%");
+    $('#bestcounter3').html((Math.round((bestcounter3/counter)*100)/1)+"%");
   
   } else {
     $('#header1').html("No Matches Found"); 
